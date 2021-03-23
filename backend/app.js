@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser'); /*Analyser les corps de requête entrants dans un middleware avant vos gestionnaires*/
 const mongoose = require('mongoose');
-const dotenv = require('dotenv').config();
+/*const dotenv = require('dotenv').config();*/
 const path = require('path'); // routes images 
 const helmet = require("helmet"); /*aide à protéger votre application de certaines des vulnérabilités bien connues du Web en configurant de manière appropriée des en-têtes HTTP.*/
 
