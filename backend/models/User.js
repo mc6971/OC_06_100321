@@ -1,5 +1,5 @@
-const mongoose = require ('mongoose'); 
-const uniqueValidator = require('mongoose-unique-validator');
+const mongoose = require ('mongoose'); /*outil de modélisation d'objets MongoDB conçu pour fonctionner dans un environnement asynchrone*/
+const uniqueValidator = require('mongoose-unique-validator'); /*plugin qui ajoute une validation de pré-sauvegarde pour les champs uniques dans un schéma Mongoose.*/
 
 const userSchema = mongoose.Schema({
     // userId: { type: String, required: true },

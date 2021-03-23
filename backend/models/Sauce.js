@@ -1,5 +1,4 @@
-const mongoose = require ('mongoose'); 
-
+const mongoose = require ('mongoose'); /*outil de modélisation d'objets MongoDB conçu pour fonctionner dans un environnement asynchrone*/
 
 const sauceSchema = mongoose.Schema({
     // id: { type: mongoose.isValidObjectId, required: true, unique: true },

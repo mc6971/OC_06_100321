@@ -1,14 +1,17 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser'); /*Analyser les corps de requête entrants dans un middleware avant vos gestionnaires*/
 const mongoose = require('mongoose');
-
+const dotenv = require('dotenv').config();
 const path = require('path'); // routes images 
-const helmet = require("helmet");
+const helmet = require("helmet"); /*aide à protéger votre application de certaines des vulnérabilités bien connues du Web en configurant de manière appropriée des en-têtes HTTP.*/
 
 const sauceRoutes = require('./routes/sauce.js');
 const userRoutes = require('./routes/user');
 
 const app = express();
+
+app.use(helmet());
+
 
 mongoose.connect('mongodb+srv://ocadmin:Oc69Admin@p6.rz6cr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', 
 { useNewUrlParser: true,

@@ -6,7 +6,7 @@ exports.createSauce = (req, res, next) => {
   const sauceObject = JSON.parse(req.body.sauce)
   const sauce = new Sauce({
     ...sauceObject,
-    // http://localhost:3000/image/nomdufichier
+
     imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
   })
   sauce

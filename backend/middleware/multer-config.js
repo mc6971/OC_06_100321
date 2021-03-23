@@ -1,4 +1,4 @@
-const multer = require('multer');
+const multer = require('multer'); /*middleware node.js pour la gestion multipart/form-data, qui est principalement utilisé pour télécharger des fichiers.*/
 
 const MIME_TYPES = {
     'image/jpg': 'jpg',
