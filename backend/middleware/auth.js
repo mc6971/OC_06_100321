@@ -1,4 +1,4 @@
-const jwt = require('jsonwebtoken'); /*Méthode permettant l'authentification sans stockage des informations sur les utilisateurs sur le système lui-même */
+const jwt = require('jsonwebtoken');
 
 module.exports = (req, res, next) => {
     try {

@@ -1,19 +1,22 @@
-const express = require('express');
-const bodyParser = require('body-parser'); /*Analyser les corps de requête entrants dans un middleware avant vos gestionnaires*/
-const mongoose = require('mongoose');
-/*const dotenv = require('dotenv').config();*/
+//Plugin :
+const express = require('express'); //import package express
+const bodyParser = require('body-parser'); //import package body-parser
+const mongoose = require('mongoose'); //import package mongoose
+const dotenv = require('dotenv');
 const path = require('path'); // routes images 
-const helmet = require("helmet"); /*aide à protéger votre application de certaines des vulnérabilités bien connues du Web en configurant de manière appropriée des en-têtes HTTP.*/
+const helmet = require("helmet");
 
+//Routes :
 const sauceRoutes = require('./routes/sauce.js');
 const userRoutes = require('./routes/user');
 
+//Application express : 
 const app = express();
 
-app.use(helmet());
-
-
-mongoose.connect('mongodb+srv://ocadmin:Oc69Admin@p6.rz6cr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', 
+dotenv.config();
+//Connexion BDD :
+//mongoose.connect('mongodb+srv://ocadmin:Oc69Admin@p6.rz6cr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+mongoose.connect(process.env.BDD_URI,
 { useNewUrlParser: true,
 useUnifiedTopology: true })
 .then(() => console.log('Connexion MongoDB réussie'))
@@ -27,13 +30,17 @@ app.use((req, res, next) => {
     next();
 });
 
+//traitement des données par bodyParser :
 app.use(bodyParser.json()); 
 
 // Indique à express que le dossier images est un dossier static
 app.use("/images", express.static(path.join(__dirname, "images")));
 
+
 app.use('/api/sauces', sauceRoutes);
 app.use('/api/auth', userRoutes);
+
+// Utilisation de helmet pour masquer le framework 
 app.use(helmet());
 
 

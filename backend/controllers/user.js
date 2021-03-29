@@ -1,14 +1,14 @@
-const bcrypt = require('bcrypt'); /*Bibliothèque pour hacher les mots de passe */
-const jwt = require('jsonwebtoken'); /*Méthode permettant l'authentification sans stockage des informations sur les utilisateurs sur le système lui-même */
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const User = require('../models/User');
 
 exports.signup = (req, res, next) => {
-  const errors = validationResult(req)
+  /*const errors = validationResult(req)
   if (!errors.isEmpty()) {
     logger.info('User tried to signup with invalid email and/or password')
     return res.status(422).json({ errors: errors.array() })
-  }
+  }*/
   bcrypt
     .hash(req.body.password, 10)
     .then(hash => {
